@@ -33,3 +33,4 @@ jobs:
       run: |
         gcloud config set project ${{ secrets.GCP_PROJECT }}
         gcloud run deploy tadone-backend-services --image gcr.io/x-labs-313805/tadone-backend-services:latest --region me-west1 --platform managed --allow-unauthenticated --memory 512M
+
