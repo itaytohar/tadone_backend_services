@@ -1,0 +1,4 @@
+Flask
+requests
+ptvsd
+pandas==1.5.1
