@@ -21,4 +21,4 @@ def main_app_entry():
 # TODO - Use Python environments so this is only run in development time.
 # Unmark in case of local development. Remark in case of production deployment.
 # app.run(ssl_context=("certificates/cert.pem", "certificates/key.pem"))
-app.run(host="0.0.0.0", port=8080)
+app.run(host="0.0.0.0", port=5005)
