@@ -3,6 +3,6 @@ requests
 ptvsd
 gunicorn
 pandas==1.5.1
-google.cloud
+google
 sqlalchemy
 typing
