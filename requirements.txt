@@ -3,7 +3,6 @@ requests
 ptvsd
 gunicorn
 pandas==1.5.1
-os
 google.cloud
 sqlalchemy
 sqlalchemy.ext.declarative
