@@ -6,4 +6,4 @@ pandas==1.5.1
 sqlalchemy
 typing
 google-cloud-secret-manager
-psycopg2
+psycopg2-binary
