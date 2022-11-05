@@ -163,9 +163,14 @@ def serviceProvidersPhotosAndVideos(providerId):
 
         data = [
             {
-                "id": 5,
+                "id": 1,
                 "providerId": 5,
-                "url": "https://googlecloud/providers/photos/1.jpg"
+                "url": "https://storage.cloud.google.com/providers_photos/providersServices/12.png"
+            },
+            {
+                "id": 2,
+                "providerId": 5,
+                "url": "https://storage.cloud.google.com/providers_photos/providersServices/9.png"
             }
         ]
         res = json.dumps(data)
