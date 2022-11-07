@@ -208,14 +208,24 @@ def serviceConsumerDetails(gender):
         # data = {"consumer": {"id": consumerId, "name": "דין", "age": 42,
         #                      "address": "הרצל 76 אור יהודה", "photo": "https://gcloud/store/photos/424-23-555324.png"}}
         # res = json.dumps(data)
-        data = [
-            {
-                "id": 1,
-                "name": "שרית",
-                "photo": "https://googlecloud/tadone/consumers/photos/1.jpg",
-                "gender": 1
-            }
-        ]
+        if gender == '1':
+            data = [
+                {
+                    "id": 1,
+                    "name": "שרית",
+                    "photo": "https://storage.cloud.google.com/providers_photos/customerPhotos/1.png",
+                    "gender": 1
+                }
+            ]
+        else:
+            data = [
+                {
+                    "id": 2,
+                    "name": "עודד",
+                    "photo": "https://storage.cloud.google.com/providers_photos/customerPhotos/2.png",
+                    "gender": 2
+                }
+            ]
         res = json.dumps(data)
         # res = json.dumps(DBUtil().GetConsumerDetails(
         #     gender).to_dict(orient="records"), cls=DecimalEncoder)
