@@ -3,6 +3,7 @@ requests
 ptvsd
 gunicorn
 pandas==1.5.1
+flask_cors
 # sqlalchemy
 # typing
 # google-cloud-secret-manager
