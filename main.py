@@ -1,14 +1,18 @@
 import os
 from flask import Flask, request, jsonify
 from TadoneServices.controller.tadone_controller import tadone_controller
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 app.register_blueprint(tadone_controller)
 
 
 @app.route("/")
+@cross_origin()
 def main_app_entry():
     print("You have reached the main entry of the app.")
     return jsonify(

@@ -1,4 +1,5 @@
 from flask import Blueprint, request, Response
+from flask_cors import CORS, cross_origin
 from datetime import datetime, timezone
 from decimal import Decimal
 import json
@@ -10,6 +11,7 @@ tadone_controller = Blueprint("tadone_controller", __name__)
 
 
 @tadone_controller.route("/services", methods=["GET"])
+@cross_origin()
 def getServices():
     try:
         lst = []
@@ -32,6 +34,7 @@ def getServices():
 
 
 @tadone_controller.route("/services/request/<consumerId>", methods=["POST"])
+@cross_origin()
 def createServiceRequest(consumerId):
     try:
         #data = request.data
@@ -45,6 +48,7 @@ def createServiceRequest(consumerId):
 
 
 @tadone_controller.route("/providers/<serviceId>/providerDetails", methods=["GET"])
+@cross_origin()
 def serviceProvidersDetails(serviceId):
     try:
         #args = request.args
@@ -87,6 +91,7 @@ def serviceProvidersDetails(serviceId):
 
 
 @tadone_controller.route("/providers/<providerId>/reviews", methods=["GET"])
+@cross_origin()
 def serviceProvidersReviews(providerId):
     try:
         #args = request.args
@@ -123,6 +128,7 @@ def serviceProvidersReviews(providerId):
 
 
 @tadone_controller.route("/providers/<providerId>/friendsLikes", methods=["GET"])
+@cross_origin()
 def serviceProvidersFriendLikes(providerId):
     try:
         #args = request.args
@@ -152,6 +158,7 @@ def serviceProvidersFriendLikes(providerId):
 
 
 @tadone_controller.route("/providers/<providerId>/photosAndVideos", methods=["GET"])
+@cross_origin()
 def serviceProvidersPhotosAndVideos(providerId):
     try:
         #args = request.args
@@ -186,6 +193,7 @@ def serviceProvidersPhotosAndVideos(providerId):
 
 
 @tadone_controller.route("/services/deal/", methods=["POST"])
+@cross_origin()
 def dealMatch():
     try:
         #data = request.data
@@ -201,6 +209,7 @@ def dealMatch():
 
 
 @tadone_controller.route("/consumers/<gender>/consumerDetails", methods=["GET"])
+@cross_origin()
 def serviceConsumerDetails(gender):
     try:
        # args = request.args
