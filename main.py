@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify
 from TadoneServices.controller.tadone_controller import tadone_controller
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 
 
 app = Flask(__name__)
@@ -12,7 +12,6 @@ app.register_blueprint(tadone_controller)
 
 
 @app.route("/")
-@cross_origin()
 def main_app_entry():
     print("You have reached the main entry of the app.")
     response = jsonify(
@@ -21,6 +20,7 @@ def main_app_entry():
         sigma_url=request.url,
         sigma_deano_message="Welcome to our Gateway. We serve and protect your data :)",
     )
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 

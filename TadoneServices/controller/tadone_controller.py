@@ -1,5 +1,5 @@
 from flask import Blueprint, request, Response
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 from datetime import datetime, timezone
 from decimal import Decimal
 import json
@@ -11,7 +11,6 @@ tadone_controller = Blueprint("tadone_controller", __name__)
 
 
 @tadone_controller.route("/services", methods=["GET"])
-@cross_origin()
 def getServices():
     try:
         lst = []
@@ -31,12 +30,12 @@ def getServices():
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/services/request/<consumerId>", methods=["POST"])
-@cross_origin()
 def createServiceRequest(consumerId):
     try:
         #data = request.data
@@ -47,12 +46,12 @@ def createServiceRequest(consumerId):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/providers/<serviceId>/providerDetails", methods=["GET"])
-@cross_origin()
 def serviceProvidersDetails(serviceId):
     try:
         #args = request.args
@@ -92,12 +91,12 @@ def serviceProvidersDetails(serviceId):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/providers/<providerId>/reviews", methods=["GET"])
-@cross_origin()
 def serviceProvidersReviews(providerId):
     try:
         #args = request.args
@@ -131,12 +130,12 @@ def serviceProvidersReviews(providerId):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/providers/<providerId>/friendsLikes", methods=["GET"])
-@cross_origin()
 def serviceProvidersFriendLikes(providerId):
     try:
         #args = request.args
@@ -163,12 +162,12 @@ def serviceProvidersFriendLikes(providerId):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/providers/<providerId>/photosAndVideos", methods=["GET"])
-@cross_origin()
 def serviceProvidersPhotosAndVideos(providerId):
     try:
         #args = request.args
@@ -200,12 +199,12 @@ def serviceProvidersPhotosAndVideos(providerId):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/services/deal/", methods=["POST"])
-@cross_origin()
 def dealMatch():
     try:
         #data = request.data
@@ -218,14 +217,12 @@ def dealMatch():
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response = response
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
 @tadone_controller.route("/consumers/<gender>/consumerDetails", methods=["GET"])
-@cross_origin()
 def serviceConsumerDetails(gender):
     try:
        # args = request.args
@@ -260,6 +257,7 @@ def serviceConsumerDetails(gender):
         # general error
         resCode = 500
     response = Response(res, resCode, mimetype='application/json')
+    response.headers.remove("Access-Control-Allow-Origin")
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
