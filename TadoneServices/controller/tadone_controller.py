@@ -30,7 +30,9 @@ def getServices():
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/services/request/<consumerId>", methods=["POST"])
@@ -44,7 +46,9 @@ def createServiceRequest(consumerId):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/providers/<serviceId>/providerDetails", methods=["GET"])
@@ -87,7 +91,9 @@ def serviceProvidersDetails(serviceId):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/providers/<providerId>/reviews", methods=["GET"])
@@ -124,7 +130,9 @@ def serviceProvidersReviews(providerId):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/providers/<providerId>/friendsLikes", methods=["GET"])
@@ -154,7 +162,9 @@ def serviceProvidersFriendLikes(providerId):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/providers/<providerId>/photosAndVideos", methods=["GET"])
@@ -189,7 +199,9 @@ def serviceProvidersPhotosAndVideos(providerId):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/services/deal/", methods=["POST"])
@@ -205,7 +217,11 @@ def dealMatch():
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response = response
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 @tadone_controller.route("/consumers/<gender>/consumerDetails", methods=["GET"])
@@ -243,7 +259,9 @@ def serviceConsumerDetails(gender):
     except Exception as ex:
         # general error
         resCode = 500
-    return Response(res, resCode, mimetype='application/json')
+    response = Response(res, resCode, mimetype='application/json')
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 class DecimalEncoder(json.JSONEncoder):

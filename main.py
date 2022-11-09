@@ -15,12 +15,14 @@ app.register_blueprint(tadone_controller)
 @cross_origin()
 def main_app_entry():
     print("You have reached the main entry of the app.")
-    return jsonify(
+    response = jsonify(
         sigma_url_root=request.script_root,
         sigma_full_path=request.full_path,
         sigma_url=request.url,
         sigma_deano_message="Welcome to our Gateway. We serve and protect your data :)",
     )
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 # TODO - Use Python environments so this is only run in development time.
