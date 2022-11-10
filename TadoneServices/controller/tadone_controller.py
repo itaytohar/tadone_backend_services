@@ -225,6 +225,7 @@ def dealMatch():
 @tadone_controller.route("/consumers/<gender>/consumerDetails", methods=["GET"])
 def serviceConsumerDetails(gender):
     try:
+
        # args = request.args
         #consumer_id = args["consumerID"]
         # data = {"consumer": {"id": consumerId, "name": "דין", "age": 42,
