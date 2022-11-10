@@ -24,6 +24,7 @@ class services(Base):
 #         self.serviceId = serviceId,
 #         self.reviews = reviews
 
+
 class consumers_details(Base):
     __tablename__ = "consumers"
     id = Column(
@@ -49,6 +50,7 @@ class providers_details_vw(Base):
     rating = Column(Numeric, nullable=False)
     about = Column(String, nullable=False)
     serviceId = Column(BigInteger, nullable=False)
+    url = Column(String, nullable=False)
 
 
 class providers_reviews(Base):

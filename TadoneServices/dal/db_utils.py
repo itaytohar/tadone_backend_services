@@ -48,7 +48,7 @@ class DBUtil:
                 "desc": item.desc,
                 "avgHourPrice": item.avgHourPrice,
                 "populare": item.populare,
-                "tip": item.tip,
+                "tip": item.tip
             }
             lst.append(new_row)
 
@@ -80,7 +80,7 @@ class DBUtil:
         self, data: List[providers_details_vw]
     ):
         data_df = pd.DataFrame(
-            columns=["id", "name", "rating", "about", "serviceId"])
+            columns=["id", "name", "rating", "about", "serviceId", "url"])
 
         lst = []
         for item in data:
@@ -90,6 +90,7 @@ class DBUtil:
                 "rating": item.rating,
                 "about": item.about,
                 "serviceId": item.serviceId,
+                "url": item.url,
             }
             lst.append(new_row)
 

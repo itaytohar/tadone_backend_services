@@ -12,7 +12,7 @@ URL_STR = "projects/" + PROJECT_ID + "/secrets/ConStr/versions/" + KEY_VER
 tadone_db_conn_string = secrets.access_secret_version(request={"name": URL_STR}).payload.data.decode(
     "utf-8"
 )
-#tadone_db_conn_string = "postgresql://tadone_user:tadone!best@localhost:5432/tadone"
+#tadone_db_conn_string = "postgresql://tadone_user:tadone!best@34.165.169.154:5432/tadone"
 
 tadone_engine = create_engine(
     tadone_db_conn_string,
