@@ -4,7 +4,7 @@ ptvsd
 gunicorn
 pandas==1.5.1
 flask_cors
-# sqlalchemy
-# typing
-# google-cloud-secret-manager
-# psycopg2-binary
+sqlalchemy
+typing
+google-cloud-secret-manager
+psycopg2-binary

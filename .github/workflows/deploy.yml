@@ -25,11 +25,11 @@ jobs:
     - name: Build & Publish
       run: |
         gcloud config set project ${{ secrets.GCP_PROJECT }}
-        gcloud builds submit --tag gcr.io/x-labs-313805/tadone-backend-services:latest
+        gcloud builds submit --tag gcr.io/x-labs-313805/tadone-backend-services-dev:latest
         gcloud config set run/region me-west1
       
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |
         gcloud config set project ${{ secrets.GCP_PROJECT }}
-        gcloud run deploy tadone-backend-services --image gcr.io/x-labs-313805/tadone-backend-services:latest --region me-west1 --platform managed --allow-unauthenticated --memory 512M --set-env-vars PROJECTID=x-labs-313805,KEYVERSION=1
+        gcloud run deploy tadone-backend-services --image gcr.io/x-labs-313805/tadone-backend-services-dev:latest --region me-west1 --platform managed --allow-unauthenticated --memory 512M --set-env-vars PROJECTID=x-labs-313805,KEYVERSION=1
